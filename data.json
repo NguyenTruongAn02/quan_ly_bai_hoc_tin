@@ -1,0 +1,158 @@
+[
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "Bài 1: Hệ điều hành",
+        "desc": ".",
+        "resources": [
+            "https://example.com/intro"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "Bài 2: Thực hành sử dụng hệ điều hành",
+        "desc": "Thực hành sử dụng hệ điều hành",
+        "resources": [
+            "https://example.com/intro"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "Bài 3: Phần mềm nguồn mở và phần mềm chạy trên Internet",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAGy87J4z3I/igfoTpFLbjOwiodaywlBGw/view?utm_content=DAGy87J4z3I&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hf413ba6769"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "Bài 4: Bên trong máy tính",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAGzkyF1-2g/1ohAJze_Ir-6eEE_W5kYAg/view?utm_content=DAGzkyF1-2g&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h46f9d968aa"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "Bài 5: Kêt nối máy tính với các thiết bị số",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAG0FZxisiE/qB2X42pngxDIhZgfaBir6Q/view?utm_content=DAG0FZxisiE&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h571ba15544"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "Bài 6: Lưu trữ và chia sẽ tệp tin trên Internet",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAG0s8vk4VI/I27FPRtCQYee5Lg6ztWuLQ/view?utm_content=DAG0s8vk4VI&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h7fa2a3eabd"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "exercise",
+        "title": "Bài tập ",
+        "desc": "Trắc nghiệm cơ bản về phần cứng.",
+        "resources": [
+            "https://trac-nghiem-bai-3-lop-12-6xrl.vercel.app/"
+        ],
+        "tags": [
+            "phần cứng"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "exercise",
+        "title": "Trò chơi ",
+        "desc": "",
+        "resources": [
+            "https://khoi-dong-lop-11-tiet-3-khoi-dong.vercel.app/"
+        ],
+        "tags": [
+            "phần cứng"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 1: Làm quen với trí tuệ nhân tạo",
+        "desc": "",
+        "resources": [
+            "https://example.com/intro"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 2: Trí tuệ nhân tạo trong khoa học và cuộc sống",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAGzDERbZOg/B3OTQH3nYpyDjMmNOngT6w/view?utm_content=DAGzDERbZOg&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h38e9fba803"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 3: Một số thiết bị mạng thông dụng",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAGznVaVwKY/PeAUDWw1BLvyTGlMrJ439w/view?utm_content=DAGznVaVwKY&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h50438ad4df"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 4: Giao thức mạng",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAG0KInk_x8/e5ol4yyxljw64s8Wyw-_fA/view?utm_content=DAG0KInk_x8&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=h70f994dad1"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 5: Thực hành chia sẽ tài nguyên trên mạng",
+        "desc": "",
+        "resources": [
+            "https://www.canva.com/design/DAG0vlOl3vs/gqJb1ZwjLBeiwRgr8DUppw/view?utm_content=DAG0vlOl3vs&utm_campaign=designshare&utm_medium=link2&utm_source=uniquelinks&utlId=hd0a7c0079c"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    }
+]

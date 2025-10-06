@@ -1,0 +1,359 @@
+<!doctype html>
+<html lang="vi">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Quản Bài Giảng - Tin Học 10|11|12</title>
+    <!-- Bootstrap 5 -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+    <!-- Bootstrap Icons -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css" rel="stylesheet">
+    <style>
+        :root {
+            --accent: #0d6efd
+        }
+
+        body {
+            background: linear-gradient(180deg, #f8fafc, #ffffff)
+        }
+
+        .sidebar {
+            min-height: 100vh;
+            background: linear-gradient(180deg, rgba(13, 110, 253, 0.06), transparent);
+        }
+
+        .card-ghost {
+            box-shadow: 0 6px 18px rgba(13, 110, 253, 0.06);
+        }
+
+        .section-pill {
+            font-weight: 600
+        }
+
+        .list-item:hover {
+            background: #f1f5ff
+        }
+
+        .small-muted {
+            font-size: .85rem;
+            color: #6c757d
+        }
+
+        .drag-handle {
+            cursor: grab
+        }
+
+        @media (max-width:767px) {
+            .sidebar {
+                min-height: unset
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container-fluid">
+        <div class="row g-0">
+            <aside class="col-md-3 p-3 sidebar border-end">
+                <div class="d-flex align-items-center mb-3">
+                    <i class="bi bi-cloud-fill fs-2 text-primary me-2"></i>
+                    <div>
+                        <h5 class="m-0">Quản Bài Giảng</h5>
+                        <div class="small-muted">Môn: Tin học — Lớp 10 | 11 | 12</div>
+                    </div>
+                </div>
+
+                <div class="mb-3">
+                    <label class="form-label">Chọn lớp</label>
+                    <div class="btn-group d-flex" role="group">
+                        <button class="btn btn-outline-primary w-100 grade-btn active" data-grade="10">Lớp 10</button>
+                        <button class="btn btn-outline-primary w-100 grade-btn" data-grade="11">Lớp 11</button>
+                        <button class="btn btn-outline-primary w-100 grade-btn" data-grade="12">Lớp 12</button>
+                    </div>
+                </div>
+
+                <div class="mb-3 card card-ghost p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="section-pill">Danh mục</div>
+                        <small class="small-muted">2 phần / lớp</small>
+                    </div>
+                    <div class="btn-group w-100" role="group">
+                        <button class="btn btn-sm btn-outline-secondary w-50 section-btn active"
+                            data-section="lesson">Bài giảng</button>
+                        <button class="btn btn-sm btn-outline-secondary w-50 section-btn" data-section="exercise">Bài
+                            tập</button>
+                    </div>
+                </div>
+
+                <div class="mb-3 card p-3">
+                    <div class="d-flex justify-content-between align-items-center mb-2">
+                        <div class="small-muted">Tác vụ</div>
+                        <div>
+                            <button id="importBtn" class="btn btn-sm btn-link" title="Import JSON"><i
+                                    class="bi bi-upload"></i></button>
+                            <button id="exportBtn" class="btn btn-sm btn-link" title="Export JSON"><i
+                                    class="bi bi-download"></i></button>
+                        </div>
+                    </div>
+                    <div class="d-grid gap-2">
+                        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#itemModal">+ Thêm
+                            mới</button>
+                        <button id="resetData" class="btn btn-outline-danger">Xóa tất cả</button>
+                    </div>
+                </div>
+
+                <div class="mt-4 small-muted">Gợi ý: Mỗi mục gồm tiêu đề, mô tả ngắn, tài nguyên (link / file) và tag.
+                </div>
+
+            </aside>
+
+            <main class="col-md-9 p-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
+                    <h4 class="m-0">Danh sách</h4>
+                    <div class="small-muted">Lưu trữ cục bộ (LocalStorage)</div>
+                </div>
+
+                <div id="listArea" class="row"></div>
+
+                <div class="mt-4">
+                    <h6>Chi tiết / Xem & Chỉnh sửa</h6>
+                    <div id="detailCard" class="card p-3 mt-2 d-none">
+                        <div class="d-flex justify-content-between">
+                            <h5 id="detailTitle"></h5>
+                            <div>
+                                <button id="editBtn" class="btn btn-sm btn-outline-primary me-2">Sửa</button>
+                                <button id="deleteBtn" class="btn btn-sm btn-outline-danger">Xóa</button>
+                            </div>
+                        </div>
+                        <p id="detailDesc" class="small-muted"></p>
+                        <div id="detailResources"></div>
+                        <div class="mt-2 small-muted">Tag: <span id="detailTags"></span></div>
+                    </div>
+                </div>
+
+            </main>
+        </div>
+    </div>
+
+    <!-- Modal: Add/Edit -->
+    <div class="modal fade" id="itemModal" tabindex="-1">
+        <div class="modal-dialog modal-lg">
+            <div class="modal-content">
+                <form id="itemForm" class="needs-validation" novalidate>
+                    <div class="modal-header">
+                        <h5 class="modal-title">Thêm / Chỉnh sửa mục</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" id="editingId">
+                        <div class="row g-3">
+                            <div class="col-md-6">
+                                <label class="form-label">Tiêu đề</label>
+                                <input id="title" class="form-control" required />
+                                <div class="invalid-feedback">Vui lòng nhập tiêu đề.</div>
+                            </div>
+                            <div class="col-md-6">
+                                <label class="form-label">Lớp</label>
+                                <select id="grade" class="form-select">
+                                    <option value="10">Lớp 10</option>
+                                    <option value="11">Lớp 11</option>
+                                    <option value="12">Lớp 12</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Loại</label>
+                                <select id="type" class="form-select">
+                                    <option value="lesson">Bài giảng</option>
+                                    <option value="exercise">Bài tập</option>
+                                </select>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Mô tả ngắn</label>
+                                <textarea id="desc" rows="3" class="form-control"></textarea>
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Tài nguyên (link - cách nhau dấu phẩy)</label>
+                                <input id="resources" class="form-control" placeholder="https://... , https://..." />
+                            </div>
+                            <div class="col-12">
+                                <label class="form-label">Tags (phân cách bằng dấu phẩy)</label>
+                                <input id="tags" class="form-control" placeholder="HTML,JS,CS" />
+                            </div>
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Hủy</button>
+                        <button type="submit" class="btn btn-primary">Lưu</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <input id="fileInput" type="file" accept="application/json" style="display:none" />
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        // --- App Data & Helpers ---
+        const STORAGE_KEY = 'quan_bai_giang_v1';
+        let DB = JSON.parse(localStorage.getItem(STORAGE_KEY) || 'null') || {
+            items: [],
+        };
+
+        // UI State
+        let currentGrade = '10';
+        let currentSection = 'lesson';
+        let selectedItemId = null;
+
+        // DOM
+        const gradeBtns = document.querySelectorAll('.grade-btn');
+        const sectionBtns = document.querySelectorAll('.section-btn');
+        const listArea = document.getElementById('listArea');
+        const detailCard = document.getElementById('detailCard');
+        const detailTitle = document.getElementById('detailTitle');
+        const detailDesc = document.getElementById('detailDesc');
+        const detailResources = document.getElementById('detailResources');
+        const detailTags = document.getElementById('detailTags');
+
+        // Form
+        const itemForm = document.getElementById('itemForm');
+        const editingId = document.getElementById('editingId');
+        const titleI = document.getElementById('title');
+        const gradeI = document.getElementById('grade');
+        const typeI = document.getElementById('type');
+        const descI = document.getElementById('desc');
+        const resourcesI = document.getElementById('resources');
+        const tagsI = document.getElementById('tags');
+
+        // Init sample if empty
+        if (DB.items.length === 0) {
+            fetch("data.json")
+                .then(res => res.json())
+                .then(json => {
+                    DB.items.push(...json.map(i => ({ id: genId(), ...i })));
+                    save();
+                    render();
+                });
+        }
+
+        // Event bindings
+        gradeBtns.forEach(b => b.addEventListener('click', () => {
+            gradeBtns.forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            currentGrade = b.dataset.grade;
+            renderList();
+            hideDetail();
+        }));
+
+        sectionBtns.forEach(b => b.addEventListener('click', () => {
+            sectionBtns.forEach(x => x.classList.remove('active'));
+            b.classList.add('active');
+            currentSection = b.dataset.section;
+            renderList();
+            hideDetail();
+        }));
+
+        document.getElementById('resetData').addEventListener('click', () => {
+            if (confirm('Xóa toàn bộ dữ liệu?')) { DB.items = []; save(); renderList(); hideDetail(); }
+        });
+
+        document.getElementById('exportBtn').addEventListener('click', () => {
+            const dataStr = JSON.stringify(DB, null, 2);
+            const blob = new Blob([dataStr], { type: 'application/json' });
+            const url = URL.createObjectURL(blob);
+            const a = document.createElement('a'); a.href = url; a.download = 'quan_bai_giang.json'; a.click(); URL.revokeObjectURL(url);
+        });
+
+        document.getElementById('importBtn').addEventListener('click', () => document.getElementById('fileInput').click());
+        document.getElementById('fileInput').addEventListener('change', async e => {
+            const f = e.target.files[0]; if (!f) return;
+            try {
+                const txt = await f.text(); const obj = JSON.parse(txt);
+                if (obj && Array.isArray(obj.items)) { if (confirm('Ghi đè dữ liệu hiện tại?')) { DB = obj; save(); renderList(); hideDetail(); } }
+            } catch (err) { alert('File không hợp lệ'); }
+            e.target.value = '';
+        });
+
+        // Form submit
+        itemForm.addEventListener('submit', e => {
+            e.preventDefault();
+            if (!itemForm.checkValidity()) { itemForm.classList.add('was-validated'); return; }
+            const id = editingId.value || genId();
+            const obj = { id, grade: gradeI.value, type: typeI.value, title: titleI.value.trim(), desc: descI.value.trim(), resources: resourcesI.value.split(',').map(s => s.trim()).filter(Boolean), tags: tagsI.value.split(',').map(s => s.trim()).filter(Boolean) };
+            const idx = DB.items.findIndex(x => x.id === id);
+            if (idx >= 0) { DB.items[idx] = obj; }
+            else { DB.items.unshift(obj); }
+            save();
+            bootstrap.Modal.getInstance(document.getElementById('itemModal')).hide();
+            clearForm(); renderList();
+        });
+
+        // Helpers: render
+        function renderList() {
+            listArea.innerHTML = '';
+            const filtered = DB.items.filter(i => i.grade === currentGrade && i.type === currentSection);
+            if (filtered.length === 0) { listArea.innerHTML = `<div class="col-12"><div class="alert alert-info">Chưa có mục nào. Nhấn "Thêm mới" để bắt đầu.</div></div>`; return; }
+            filtered.forEach(item => {
+                const col = document.createElement('div'); col.className = 'col-md-6 mb-3';
+                col.innerHTML = `
+          <div class="card card-ghost p-3 list-item" data-id="${item.id}">
+            <div class="d-flex justify-content-between align-items-start">
+              <div>
+                <div class="fw-bold">${escapeHtml(item.title)}</div>
+                <div class="small-muted">${escapeHtml(item.desc || '—')}</div>
+                <div class="mt-2">
+                  ${item.tags.map(t => `<span class="badge bg-light text-muted me-1">${escapeHtml(t)}</span>`).join('')}
+                </div>
+              </div>
+              <div class="text-end">
+                <button class="btn btn-sm btn-outline-secondary me-1 viewBtn">Xem</button>
+                <button class="btn btn-sm btn-outline-primary me-1 editBtn">Sửa</button>
+              </div>
+            </div>
+          </div>
+        `;
+                listArea.appendChild(col);
+                col.querySelector('.viewBtn').addEventListener('click', () => showDetail(item.id));
+                col.querySelector('.editBtn').addEventListener('click', () => openEdit(item.id));
+            });
+        }
+
+        function showDetail(id) {
+            const it = DB.items.find(x => x.id === id); if (!it) return;
+            selectedItemId = id;
+            detailCard.classList.remove('d-none');
+            detailTitle.textContent = it.title;
+            detailDesc.textContent = it.desc || '';
+            detailResources.innerHTML = it.resources.length ? ('<div class="mt-2">' + it.resources.map(r => `<div><a href="${escapeAttr(r)}" target="_blank">${escapeHtml(r)}</a></div>`).join('') + '</div>') : '';
+            detailTags.textContent = it.tags.join(', ');
+            document.getElementById('editBtn').onclick = () => openEdit(id);
+            document.getElementById('deleteBtn').onclick = () => { if (confirm('Xóa mục này?')) { DB.items = DB.items.filter(x => x.id !== id); save(); renderList(); hideDetail(); } };
+        }
+
+        function hideDetail() { selectedItemId = null; detailCard.classList.add('d-none'); }
+
+        function openEdit(id) {
+            const it = DB.items.find(x => x.id === id); if (!it) return;
+            editingId.value = it.id;
+            titleI.value = it.title; gradeI.value = it.grade; typeI.value = it.type; descI.value = it.desc || ''; resourcesI.value = (it.resources || []).join(', '); tagsI.value = (it.tags || []).join(', ');
+            const modal = new bootstrap.Modal(document.getElementById('itemModal')); modal.show();
+        }
+
+        function clearForm() { editingId.value = ''; titleI.value = ''; descI.value = ''; resourcesI.value = ''; tagsI.value = ''; itemForm.classList.remove('was-validated'); }
+
+        function save() { localStorage.setItem(STORAGE_KEY, JSON.stringify(DB)); }
+
+        function genId() { return 'id_' + Math.random().toString(36).slice(2, 9); }
+
+        function escapeHtml(s) { if (!s) return ''; return s.replaceAll('&', '&amp;').replaceAll('<', '&lt;').replaceAll('>', '&gt;'); }
+        function escapeAttr(s) { return s.replaceAll('"', '%22'); }
+
+        // Initial render
+        renderList();
+
+    </script>
+</body>
+
+</html>
