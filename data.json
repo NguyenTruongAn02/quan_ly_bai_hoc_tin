@@ -73,6 +73,18 @@
     },
     {
         "grade": "11",
+        "type": "lesson",
+        "title": "Bài 7: THỰC HÀNH TÌM KIẾM THỐNG TIN TRÊN INTERNET",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/BAI-7-THUC-HANH-TIM-KIEM-THONG-TIN-TREN-INTERNET-uo3mieu11irjati"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
         "type": "exercise",
         "title": "Bài tập ",
         "desc": "Trắc nghiệm cơ bản về phần cứng.",
