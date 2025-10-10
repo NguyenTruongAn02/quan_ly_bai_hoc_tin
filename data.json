@@ -166,5 +166,17 @@
         "tags": [
             "nhập môn"
         ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 6: GIAO TIẾP VÀ ỨNG XỬ TRONG KHÔNG GIAN MẠNG",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/BAI-6-GIAO-TIEP-VA-UNG-XU-TRONG-KHONG-GIAN-MANG-pkrr0souj2ezbys"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
     }
 ]
