@@ -85,6 +85,18 @@
     },
     {
         "grade": "11",
+        "type": "lesson",
+        "title": "BÀI 8: THỰC HÀNH NÂNG CAO SỬ DỤNG THƯ ĐIỆN TỬ VÀ MẠNG XÃ HỘI",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/Van-e--s0sm0icxz3pty7l"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
         "type": "exercise",
         "title": "Bài tập ",
         "desc": "Trắc nghiệm cơ bản về phần cứng.",
@@ -174,6 +186,18 @@
         "desc": "",
         "resources": [
             "https://gamma.app/docs/BAI-6-GIAO-TIEP-VA-UNG-XU-TRONG-KHONG-GIAN-MANG-pkrr0souj2ezbys"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 7: HTML VÀ CẤU TRÚC TRANG WEB",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/Trang-web-uoc-tao-ra-nhu-the-nao-hnbxvuyzp4fd6a1"
         ],
         "tags": [
             "nhập môn"
