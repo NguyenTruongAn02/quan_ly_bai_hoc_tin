@@ -86,10 +86,22 @@
     {
         "grade": "11",
         "type": "lesson",
-        "title": "BÀI 8: THỰC HÀNH NÂNG CAO SỬ DỤNG THƯ ĐIỆN TỬ VÀ MẠNG XÃ HỘI22222222222222222222222",
+        "title": "BÀI 8: THỰC HÀNH NÂNG CAO SỬ DỤNG THƯ ĐIỆN TỬ VÀ MẠNG XÃ HỘI",
         "desc": "",
         "resources": [
             "https://gamma.app/docs/Van-e--s0sm0icxz3pty7l"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "11",
+        "type": "lesson",
+        "title": "BÀI 9: GIAO TIẾP AN TOÀN TRÊN INTERNET",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/KHOI-ONG-BAN-CO-TIN-KHONG-xxi3getszytdb8o"
         ],
         "tags": [
             "nhập môn"
@@ -210,6 +222,18 @@
         "desc": "",
         "resources": [
             "https://quan-ly-game.vercel.app/"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 8: ĐỊNH DẠNG VĂN BẢN",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/oan-A-Van-ban-thuan-4ktoxp557hzvgmn"
         ],
         "tags": [
             "nhập môn"
