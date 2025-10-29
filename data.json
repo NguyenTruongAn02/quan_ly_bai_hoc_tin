@@ -238,5 +238,17 @@
         "tags": [
             "nhập môn"
         ]
+    },
+    {
+        "grade": "12",
+        "type": "exercise",
+        "title": "IDE ",
+        "desc": "",
+        "resources": [
+            "https://quan-ly-game.vercel.app/editor"
+        ],
+        "tags": [
+            "IDE"
+        ]
     }
 ]
