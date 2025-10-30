@@ -241,6 +241,18 @@
     },
     {
         "grade": "12",
+        "type": "lesson",
+        "title": "Bài 9: ĐỊNH DẠNG VĂN BẢN",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/Bai-9-Tao-Danh-Sach-va-Bang-trong-HTML-nw5842adv55350a"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
         "type": "exercise",
         "title": "IDE ",
         "desc": "",
