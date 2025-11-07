@@ -253,6 +253,30 @@
     },
     {
         "grade": "12",
+        "type": "lesson",
+        "title": "Bài 10: TẠO LIÊN KẾT TRANG WEB",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/BAI-10-TAO-LIEN-KET-cdakcy535lridpy"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
+        "type": "lesson",
+        "title": "Bài 11: CHÈN TỆP TIN ĐA PHƯƠNG TIỆN VÀO TRANG WEB",
+        "desc": "",
+        "resources": [
+            "https://gamma.app/docs/Bai-11-Chen-Tep-Tin-a-Phuong-Tien-Khung-Noi-Tuyen-Vao-Trang-Web-q28o3y4foxaxcsi"
+        ],
+        "tags": [
+            "nhập môn"
+        ]
+    },
+    {
+        "grade": "12",
         "type": "exercise",
         "title": "IDE ",
         "desc": "",
